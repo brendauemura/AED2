@@ -1,22 +1,24 @@
 //Brenda Uemura
 //Problema 1 - Pares de números
- 
+
+
 #include <stdio.h>
 #include <stdlib.h>
- 
+
 // Função de comparação para qsort
 int comparar(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
 }
- 
+
+
 // Realizando a contagem da soma dos pares
 int cont(int S[], int tamanho, int N) {
     int count = 0;
     int left = 0;
     int right = tamanho - 1;
- 
-// Ordenando o vetor S 
-qsort(S, tamanho, sizeof(int), comparar);
+
+    // Ordenando o vetor S 
+    qsort(S, tamanho, sizeof(int), comparar);
 
     while (left < right) {
         int soma = S[left] + S[right];
@@ -32,10 +34,12 @@ qsort(S, tamanho, sizeof(int), comparar);
     }
     return count;
 }
- 
+
+
 int main() {
     int tamanho, N;
     scanf("%d %d", &tamanho, &N);
+
     int S[tamanho];
     for (int i = 0; i < tamanho; i++) {
         scanf("%d", &S[i]);
@@ -43,5 +47,6 @@ int main() {
 
     int resultado = cont(S, tamanho, N);
     printf("%d\n", resultado);
+
     return 0;
 }
